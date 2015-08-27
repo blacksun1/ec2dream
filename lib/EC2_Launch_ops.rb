@@ -226,7 +226,6 @@ class EC2_Launch
       save_ops_launch('Admin_Password')
       save_ops_launch('EC2_SSH_User')
       save_ops_launch('SSH_Private_Key')
-      save_ops_launch('Putty_Private_Key')
       save_ops_launch('Minimum_Server_Count')
       save_ops_launch('Maximum_Server_Count')
       save_ops_launch('Availability_Zone')
@@ -264,7 +263,7 @@ class EC2_Launch
   end
 
   def save_ops_launch(key)
-    puts "Launch.save_ops_launch"
+    puts "Launch.save_ops_launch " + key
     if key == 'Admin_Password' and @properties['Name'] != nil and @properties['Name'] != ""
       @properties[key+"_"+@properties['Name']] = @ops_launch[key].text
     elsif @ops_launch[key].text != nil
